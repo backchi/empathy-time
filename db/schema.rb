@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_05_27_104606) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

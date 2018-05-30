@@ -4,9 +4,10 @@
     <title>EmpathyTimes</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <link rel="stylesheet" href="navigation.scss">
   <!--추가한부분-->
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
@@ -14,22 +15,19 @@
   </head>
 
   <body>
-    <!--홈으로 가기-->
-    <%= link_to '홈', root_path %>
-    
-    <!--사용자가 로그인 했을 경우-->
-    <% if user_signed_in? %>
-    <!--사용자의 이메일이 보여짐-->
-      <%= current_user.email %>
+    <nav>
+      <ul class="sidenav">
+        <li><%= link_to '홈', root_path %></li> <!--홈으로 가기-->
+        <% if user_signed_in? %>
+          <!--<li><a herf="#"><#%= current_user.email %></a></li>--> <!--사용자의 이메일이 보여짐-->
+          <li><%= link_to '로그아웃', destroy_user_session_path , method: 'delete' %></li> <!--사용자가 로그인 했을 경우-->
+        <% else %>
+          <li><%= link_to '회원가입', new_user_registration_path %></li>  <!--회원가입 버튼-->
+          <li><%= link_to '로그인', new_user_session_path %></li> <!--로그인 버튼-->
+        <% end %>
+      </ul>
       <!--link_to가 기본적으로 가진 메소드는 'get'-->
-      <%= link_to '로그아웃', destroy_user_session_path , method: 'delete' %>
-      
-    <% else %>
-      <!--회원가입 버튼-->
-      <%= link_to '회원가입', new_user_registration_path %>
-      <!--로그인 버튼-->
-      <%= link_to '로그인', new_user_session_path %>
-    <% end  %>
+    </nav>
     <%= yield %>
   </body>
 </html>
