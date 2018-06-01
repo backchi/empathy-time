@@ -1,3 +1,4 @@
+<% stylesheet_link_tag "show" %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -6,14 +7,69 @@
 </p>
 
 <p>
-  <strong>Content:</strong>
-  <%= @post.content %>
+  <strong>User:</strong>
+  <%= @post.user.name %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user.email %>
-</p>
+ <!--테이블 구간 시간-->
+  <div class="inter">
+    <script language='javascript'>
+    // document.write("한 칸당 시간 : " + x + " 시간 / 며칠간 : " + y + " 일");
+      var x = <%= @post.interval %>;
+      var starttime = <%= @post.starttime%>;
+      var fintime = <%= @post.fintime%>;
+      
+      document.write("<table width=50 border=1>");
+      document.write("<tr> ");
+			document.write("<td width=50 height=50></td>");
+	    document.write("</tr>");
+      for(i=0;i<24/x;i++)
+		  {
+			  document.write("<tr> ");
+				document.write("<td width=50 height=50> <p align=center>" + starttime + "시</p></td>");
+		    document.write("</tr>");
+		  	starttime = starttime + x;
+      }
+    document.write("</table>");
+    </script>
+  </div>
+  
+  <!--테이블 날짜-->
+  <div class="day">
+    <script language='javascript'>
+      var num = <%= @post.startday%>;
+      var y = <%= @post.days%>;
+      document.write("<table width=700 border=1>");
+        document.write("<tr> ");
+      for(j=0;j<y;j++) {
+  			document.write("<td width=50 height=50> <p align=center>"+num+"일</p></td>");
+  			num++;
+      }
+  			document.write("</tr>");
+      document.write("</table>");
+    </script>
+  </div>
+  
+  <!--테이블-->
+  <div class="tb">
+    <script language='javascript'>
+	  	
+	  	document.write("<table width=700 border=1>");
+  		for(i=0;i<24/x;i++)
+  		{
+  			document.write("<tr> ");
+  			for(j=0;j<y;j++)
+  			{
+  				document.write("<td width=50 height=50><a class=\"tb-click\" href=\" / \">　</a></td>");
+  				num++;
+  			}
+  			document.write("</tr>");
+  		}
+  		document.write("</table>");
+  </script>
+  </div>
+
+
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

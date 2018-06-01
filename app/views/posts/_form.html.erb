@@ -1,4 +1,3 @@
-<% stylesheet_link_tag "form" %>
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -16,77 +15,36 @@
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
-
+  
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, required: true %>
+    <%= form.label :interval %>
+    <%= form.text_area :interval, required: true %>
   </div>
-  
-  <!--테이블 구간 시간-->
-  <div class="interval">
-    <script language='javascript'>
-      var x=Number(prompt("한 칸당 몇 시간으로 설정할까요?"));
-      var starttime=Number(prompt("몇 시부터로 설정할까요?"));
-      var fintime=Number(prompt("몇 시까지로 설정할까요?"));
       
-      document.write("<table width=50 border=1>");
-      document.write("<tr> ");
-			document.write("<td width=50 height=50></td>");
-	    document.write("</tr>");
-      for(i=0;i<24/x;i++)
-		  {
-			  document.write("<tr> ");
-				document.write("<td width=50 height=50> <p align=center>" + starttime + "</p></td>");
-		    document.write("</tr>");
-		  	starttime = starttime + x;
-      }
-     document.write("</table>");
-    </script>
+  <div class="field">
+    <%= form.label :starttime %>
+    <%= form.text_area :starttime, required: true %>
   </div>
   
-  <!--테이블 날짜-->
-  <div class="day">
-    <script language='javascript'>
-      var y=Number(prompt("며칠 동안의 시간을 비교해볼까요?"));
-      var num=Number(prompt("며칠 부터?"));
-      document.write("<table width=700 border=1>");
-        document.write("<tr> ");
-      for(j=0;j<y;j++) {
-  			document.write("<td width=50 height=50> <p align=center>"+num+"</p></td>");
-  			num++;
-      }
-  			document.write("</tr>");
-      document.write("</table>");
-    </script>
+  <div class="field">
+    <%= form.label :fintime %>
+    <%= form.text_area :fintime, required: true %>
   </div>
   
-  <!--테이블-->
-  <div class="tb">
-    <script language='javascript'>
-	  	// document.write("한 칸당 시간 : " + x + " 시간 / 며칠간 : " + y + " 일");
-	  	document.write("<table width=700 border=1>");
-  		for(i=0;i<24/x;i++)
-  		{
-  			document.write("<tr> ");
-  			for(j=0;j<y;j++)
-  			{
-  				document.write("<td width=50 height=50></td>");
-  				num++;
-  			}
-  			document.write("</tr>");
-  		}
-  		document.write("</table>");
-  </script>
+  <div class="field">
+    <%= form.label :startday %>
+    <%= form.text_area :startday, required: true %>
   </div>
-
   
+  <div class="field">
+    <%= form.label :days %>
+    <%= form.text_area :days, required: true %>
+  </div>
   <!--<div class="field">-->
   <!--  <%#= calendar number_of_days: 7 do |date| %>-->
   <!--    <%#= link_to date, '/posts/new' %>-->
   <!--  <%# end %>-->
   <!--</div>-->
-  
- 
   
   <div class="actions">
     <%= form.submit %>

@@ -1,0 +1,33 @@
+.inter {
+    float: left;
+}
+
+p {
+    padding: 0;
+}
+
+td{
+    padding: 0;
+}
+.tb-click {
+    display:block;
+    width: 100%;
+    height: 100%;
+}
+.tb-click:hover {
+    text-decoration: none;
+}
+.tb-click:link {
+    text-decoration: none;
+}
+.tb-click:visited {
+    text-decoration: none;
+    background-color: red;
+}
+
+.day {
+    
+}
+.tb {
+    
+}
