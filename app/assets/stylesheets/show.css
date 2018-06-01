@@ -9,21 +9,28 @@ p {
 td{
     padding: 0;
 }
-.tb-click {
+#tb-click {
     display:block;
     width: 100%;
     height: 100%;
 }
-.tb-click:hover {
-    text-decoration: none;
-}
-.tb-click:link {
-    text-decoration: none;
-}
-.tb-click:visited {
-    text-decoration: none;
-    background-color: red;
-}
+/*.tb-click:visited {*/
+    /*text-decoration: none;*/
+/*    background-color: red;*/
+/*}*/
+/*href=\" /posts/<%= @post.id%> \"*/
+/*.tb-click:hover {*/
+/*    text-decoration: none;*/
+/*    background-color: none;*/
+/*}*/
+
+/*.tb-click:link {*/
+    
+/*}*/
+/*.tb-click:active {*/
+    /*text-decoration: none;*/
+    /*background-color: red;*/
+/*}*/
 
 .day {
     

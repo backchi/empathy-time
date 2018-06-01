@@ -53,6 +53,9 @@
   <!--테이블-->
   <div class="tb">
     <script language='javascript'>
+     function tableColor() {
+          document.getElementById("tb-click").style.backgroundColor = "green"
+      }
 	  	
 	  	document.write("<table width=700 border=1>");
   		for(i=0;i<24/x;i++)
@@ -60,7 +63,7 @@
   			document.write("<tr> ");
   			for(j=0;j<y;j++)
   			{
-  				document.write("<td width=50 height=50><a class=\"tb-click\" href=\" / \">　</a></td>");
+  				document.write("<td width=50 height=50><span id=\"tb-click\" onClick=\"tableColor();\">　</span></td>");
   				num++;
   			}
   			document.write("</tr>");
