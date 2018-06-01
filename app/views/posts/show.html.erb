@@ -53,17 +53,31 @@
   <!--테이블-->
   <div class="tb">
     <script language='javascript'>
-     function tableColor() {
-          document.getElementById("tb-click").style.backgroundColor = "green"
-      }
+     
+     function changeTrColor(trObj, changeColor, preColor) {
+				if (trObj.style.backgroundColor == changeColor) {
+				  trObj.onclick = function(){
+				    trObj.style.backgroundColor = preColor;
+				  }
+				}
+				else {
+  				trObj.onclick = function(){
+  					trObj.style.backgroundColor = changeColor;
+  				}
+				}
+			}
+
+			function clickTrEvent(trObj) {
+				alert(trObj.id);
+			}
 	  	
 	  	document.write("<table width=700 border=1>");
   		for(i=0;i<24/x;i++)
   		{
-  			document.write("<tr> ");
+  			document.write("<tr>");
   			for(j=0;j<y;j++)
   			{
-  				document.write("<td width=50 height=50><span id=\"tb-click\" onClick=\"tableColor();\">　</span></td>");
+  				document.write("<td id=tbtd" + num + "width=50 height=50 onclick=\"javascript:clickTrEvent(this)\" onmouseover=\"javascript:changeTrColor(this, 'blue', 'white')\" style=\"cursor:hand\"><span id=\"tb-click\">　</span></td>");
   				num++;
   			}
   			document.write("</tr>");

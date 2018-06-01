@@ -2,13 +2,6 @@
     float: left;
 }
 
-p {
-    padding: 0;
-}
-
-td{
-    padding: 1;
-}
 #tb-click {
     display:block;
     width: 100%;
